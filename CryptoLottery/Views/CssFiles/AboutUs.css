@@ -1,0 +1,107 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    
+}
+
+.page-info {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ),url("handshake.png");
+    /* Full height */
+    height: 100%;
+    /* Center and scale the image nicely */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.general-paragraphs {
+    filter:brightness(50%);
+    text-align: left;
+    font-size: 14px;
+    color: white;
+    filter: brightness(10);
+}
+
+.team-section {
+    overflow: hidden;
+    text-align: center;
+    padding: 40px;
+    color: white;
+}
+
+.general-information {
+    overflow: hidden;
+    text-align: center;
+    padding: 40px;
+    color: white;
+}
+
+
+
+ h1{
+    text-transform:uppercase;
+    margin-bottom:60px;
+    color:white;
+    font-size:40px; 
+}
+
+
+.border {
+    display:block;
+    margin:auto;
+    width:160px;
+    height:3px;
+    background:#3498db;
+    margin-bottom:40px;
+}
+
+.ps{
+    margin-bottom:20px;
+}
+
+.ps a {
+    display:inline-block;
+    margin:0 30px;
+    width:160px;
+    height:160px;
+    overflow:hidden;
+    border-radius:50%;
+}
+
+.ps a img{
+    width:100%;
+    height:95%;
+    filter:grayscale(100%);
+    transition: 0.2s all;
+}
+
+.ps a:hover > img{
+    filter:none;
+}
+
+.section {
+    width: 600px;
+    margin: auto;
+    font-size: 20px;
+    color: white;
+    text-align:justify;
+    height:0;
+    overflow:hidden;
+}
+
+.section:target{
+    height:auto;
+}
+
+.name{
+    display:block;
+    margin-bottom:30px;
+    text-align:center;
+    text-transform:uppercase;
+}

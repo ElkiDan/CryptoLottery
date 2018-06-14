@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script src="../../Jquery/jquery-3.2.1.min.js"></script>
+    <link href="../../BootStrap/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <title>About Us</title>
+    <link href="../../CssFiles/AboutUs.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="navBar"> </div>
+    <div class="page-info">
+        <div class="general-information">
+            <h1>General Information</h1>
+            <span class="border"></span>
+            <div class="general-paragraphs">
+                <p>
+                    We are two CS and Economics student.
+                    We are currently on our final year of studies and chose to do our final project in cooperation with Mr. Avishai Yanai and Mr. Assi Barak Both of whom are from the BIU Cyber center and instruct us throughout our work.
+                    The reason for choosing this project was to combine both fields that we study: CS and Economics, Using a very evolving and spoken on technology such as Blockchain.
+                    Our project is Crypto Lottery, More in details it's a Completly uniform decentralized lottery without a third party that can manipulate the result.
+                    The idea for the protocol was thought by Avishay yanai, And can be considered as aggregated Coin toss protocol to ensure the uniformity of the lottery.
+                </p>
+                <p>
+                    <br>
+                    <h2>
+                        The following is The protocol:
+                    </h2>
+                    <br>
+                    1.Each user generates their own secret random number N
+                    <br>
+                    2.Users create their commitment by hashing their N with their address: bytes32 hash = sha3(N,msg.sender)
+                    <br>
+                    note: steps 1 & 2 should be performed locally, in secret.
+                    3.Users send their hash to the contract along a fixed amount of ether which is the bet and an additional amount that will be returned to each honest player so that it wouldn't be worth it to try and cheat.
+                    <br>
+                    4.Submissions continue until a sufficient participants have joined.
+                    <br>
+                    5.Once the submission round has ended, the reveal round begins.
+                    <br>
+                    6.Each user submits their random number N to the contract
+                    <br>
+                    7.The contract verifies that the keccak256(N,msg.sender) matches the original submission
+                    <br>
+                    8.If the user does not submit a valid N in time, his deposit is forfeit.
+                    <br>
+                    9.Stage 7 continues for a minimum grace period of 100 block and then each player can check if the lottery can start( The user who initiated the lottery will be rewarded by half of his bet !!)
+                    <br>
+                    10.The Ns are all XOR'd together to generate the resulting random number.
+                    <br>
+                    11.This number is used to determine which of the participants receives the reward. (N % numUsers)
+                    <br>
+                    12.All players recieve their frozen funds, The winner gets the winning prize and the Lottery initiator gets his reward.
+                </p>
+            </div>
+
+
+        </div>
+
+        <div class="team-section">
+            <h1>Our Team</h1>
+            <span class="border"></span>
+            <div class="ps">
+                <a href="#p1"><img src="../../CssFiles/Yoavpic1.jpg" /></a>
+                <a href="#p2"><img src="../../CssFiles/DanielPic1.jpg" /></a>
+            </div>
+            <div class="section" id="p1">
+                <span class="name">Yoav Gomberg</span>
+                <span class="border"></span>
+                <p> A very enthusiastic and passionate software developer and technology geek, After serving in an elite unit on the IDF  started pursuing a double major degree in Computer Science and Economics in Bar-Ilan university and for the last 6 months am working 
+                    in Marvell on the Embedded processor group.
+                </p>
+            </div>
+
+            <div class="section" id="p2">
+                <span class="name">Daniel Marzayev</span>
+                <span class="border"></span>
+                <p>A very talented student for Computer Science and Economics in Bar-Ilan university, Currenly taking a part in an elite program of the IDF called "Atuda" 
+                   which drafts people after they finished their degree and integrating them  as officers on different parts of the army while using the knowledge they gained
+                during their studies</p>
+            </div>
+        </div>
+    </div>
+    <script src="../../Scripts/NavBarScript.js"></script>
+
+    
+</body>
+</html>

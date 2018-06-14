@@ -1,0 +1,90 @@
+﻿<link href="../../BootStrap/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="../../BootStrap/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<link href="../../CssFiles/PlayCSS.css" rel="stylesheet"/>
+<script src="../../Jquery/jquery-3.2.1.js"></script>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CryptoLottery</title>
+</head>
+
+<body class="backgroundPlay">
+<div id="navBar" style="margin-bottom: 10vh;"> </div>
+<div class="header">
+    <div class="imageHolder"></div>
+    <div class="columnFlex">
+        <label class="etherBalnaceLabel">Current Ether Balance</label>
+        <input class="hvr-grow" id="currentBalance" type="button" value="Submit">
+    </div>
+</div>
+<div class="columnFlex">
+    <div class="columnFlex margin-bottom5vh">
+        <h1 style="color: whitesmoke; font-weight: bold">Enter Your Random Number</h1>
+        <div class="imageHolder">
+            <input type="number" class="temp" id="randomNumber" placeholder="Enter Random Number"/>
+            <button class="btnRandomNumber"> </button>
+        </div>
+    </div>
+    <div id="buttonsDiv" class="columnFlex" style="display: flex">
+        <button id="playBtn" class="button" onclick="play()" style="vertical-align: middle">
+            <span>Play Now </span>
+        </button>
+        <button id="randomBtn" disabled="disabled" onclick="sendRandom()" class="button disabled" style="vertical-align: middle">
+            <span>Send Your Random </span>
+        </button>
+        <button id="checkForStartBtn" disabled="disabled" onclick="checkIfLotteryCanStart()" class="button disabled" style="vertical-align: middle">
+            <span>Check If Lottery Can Start </span>
+        </button>
+    </div>
+    <div id="loaderDiv" class="columnFlex" style="display: none">
+        <img src="../../CssFiles/loader.gif" width="250" height="250"/>
+    </div>
+    <div id="winnerDiv" class="alert alert-success" style="display: none">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+            ×
+        </button>
+        <span class="glyphicon glyphicon-ok"></span> <strong>Congtulations (:</strong>
+        <hr class="message-inner-separator">
+        <p>
+            You Won The Lottery!!!
+        </p>
+    </div>
+    <div id="loserDiv" class="alert alert-danger" style="display: none">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+            ×
+        </button>
+        <span class="glyphicon glyphicon-ok"></span> <strong>Sorry ):</strong>
+        <hr class="message-inner-separator">
+        <p>
+            You Lost In The Lottery!
+        </p>
+    </div>
+    <div id="bonusDiv" class="alert alert-info" style="display: none">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+            ×
+        </button>
+        <span class="glyphicon glyphicon-ok"></span> <strong>Thank You (: </strong>
+        <hr class="message-inner-separator">
+        <p>
+            You activated The Lottery!!!
+        </p>
+    </div>
+    <div id="cheatPlayerDiv" class="alert alert-warning" style="display: none">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+            ×
+        </button>
+        <span class="glyphicon glyphicon-ok"></span><strong> You Cheated (: </strong>
+        <hr class="message-inner-separator">
+
+        <p>
+            You Got Kicked From The Lottery!!!
+        </p>
+    </div>
+</div>
+<script src="../../Scripts/NavBarScript.js"></script>
+</body>
+
+</html>
+
+<script src="../../Scripts/ContractJS.js"></script>

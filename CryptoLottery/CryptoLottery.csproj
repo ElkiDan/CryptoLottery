@@ -43,6 +43,34 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -66,7 +94,33 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Views\CssFiles\AboutUs.css" />
+    <Content Include="Views\CssFiles\Danielpic1.jpg" />
+    <Content Include="Views\CssFiles\handshake.png" />
+    <Content Include="Views\CssFiles\Home.jpeg" />
+    <Content Include="Views\CssFiles\loader.gif" />
+    <Content Include="Views\CssFiles\PlayCSS.css" />
+    <Content Include="Views\CssFiles\randomButton.png" />
+    <Content Include="Views\CssFiles\Site.css" />
+    <Content Include="Views\CssFiles\source.gif" />
+    <Content Include="Views\CssFiles\Yoavpic1.jpg" />
+    <Content Include="Views\HtmlPages\AboutUsPage\AboutUs.html" />
+    <Content Include="Views\HtmlPages\PlayPage\PlayPage.html" />
+    <Content Include="Views\Resources\Block.gif" />
+    <Content Include="Views\Resources\loading.gif" />
     <Content Include="packages.config" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\BootStrap\bootstrap-3.3.7-dist\css\bootstrap-theme.css.map" />
+    <Content Include="Views\BootStrap\bootstrap-3.3.7-dist\css\bootstrap-theme.min.css.map" />
+    <Content Include="Views\BootStrap\bootstrap-3.3.7-dist\css\bootstrap.css.map" />
+    <Content Include="Views\BootStrap\bootstrap-3.3.7-dist\css\bootstrap.min.css.map" />
+    <Content Include="Views\BootStrap\bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Views\BootStrap\bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Views\BootStrap\bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Views\BootStrap\bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -75,11 +129,46 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <None Include="Scripts\_references.js" />
+    <Content Include="Views\BootStrap\bootstrap-3.3.7-dist\css\bootstrap-theme.css" />
+    <Content Include="Views\BootStrap\bootstrap-3.3.7-dist\css\bootstrap-theme.min.css" />
+    <Content Include="Views\BootStrap\bootstrap-3.3.7-dist\css\bootstrap.css" />
+    <Content Include="Views\BootStrap\bootstrap-3.3.7-dist\css\bootstrap.min.css" />
+    <Content Include="Views\BootStrap\bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Views\BootStrap\bootstrap-3.3.7-dist\js\bootstrap.js" />
+    <Content Include="Views\BootStrap\bootstrap-3.3.7-dist\js\bootstrap.min.js" />
+    <Content Include="Views\BootStrap\bootstrap-3.3.7-dist\js\npm.js" />
+    <Content Include="Views\CssFiles\HomePageStyle.css" />
+    <Content Include="Views\CssFiles\loader.css" />
+    <Content Include="Views\CssFiles\StyleSheet.css" />
+    <Content Include="Views\HtmlPages\HomePage\HomePage.html" />
+    <Content Include="Views\HtmlPages\TheNavBar\NavBar.html" />
+    <Content Include="Views\Jquery\jquery-3.2.1.js" />
+    <Content Include="Views\Jquery\jquery-3.2.1.min.js" />
+    <Content Include="Views\Resources\animated-gif-homepage.gif" />
+    <Content Include="Views\Resources\homePageImage.png" />
+    <Content Include="Views\Resources\homePageMazeImage.jpg" />
+    <Content Include="Views\Scripts\ContractJS.js" />
+    <Content Include="Views\Scripts\NavBarScript.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
