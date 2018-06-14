@@ -213,6 +213,6 @@ function checkIfLotteryCanStart() {
 }
 
 function generateRandomNumber() {
-    //    var number = Math.floor((Math.random() * 100000) + 1);
-    //    document.getElementById("genRandomNumber").value = number.toString();
+        var number = Math.floor((Math.random() * 100000) + 1);
+        document.getElementById("randomNumber").value = number.toString();
 }
