@@ -54,7 +54,7 @@ input[type="number"] {
     width: 100%;
     transition: all 0.5s;
     cursor: pointer;
-    margin: 7px;
+    margin: 5px;
     box-shadow: 0 9px #999;
 }
 
@@ -138,11 +138,11 @@ input[type="number"] {
     margin-left: 10px;
     background-image: url(randomButton.png);
     align-content: center;
-    height: 80px;
+    height: 83px;
     width: 105px;
     background-repeat: no-repeat;
     background-size: 100%; /* To fill the dimensions of container (button), or */
-    background-size: 100px 80px;
+    background-size: 100px 85px;
     float: right;
 }
 
