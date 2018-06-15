@@ -83,7 +83,6 @@ function play() {
 
             getBalance(address).then((result) => {
                 var balance = result.c[0] / 10000;
-                alert("you got " + balance + " ether");
                 if (balance >= amountOfPayment) {
                     //hash the random number 
                     randomNumber = document.getElementById("randomNumber").value;
@@ -95,7 +94,6 @@ function play() {
                     },
                         function (error, result) {
                             if (!(error)) {
-                                console.log("Tomer");
                             }
                         });
 
@@ -131,12 +129,10 @@ AnnonceSentRandom.watch(function (error, result) {
         document.getElementById("buttonsDiv").style.display = "flex";
         document.getElementById("randomBtn").disabled = false;
         document.getElementById("randomBtn").style.opacity = "1";
-        //TODO After few min??
         document.getElementById("checkForStartBtn").disabled = false;
         document.getElementById("checkForStartBtn").style.opacity = "1";
         alert("Now you can send your random!");
     } else {
-        //$("#loading").hide();
         console.log(error);
     }
 });
