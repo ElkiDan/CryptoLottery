@@ -1,0 +1,42 @@
+﻿
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+
+.blockchain-info {
+    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),url("Resources/w_handshake.png");
+    /* Full height */
+    height: 100%;
+    /* Center and scale the image nicely */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.blocks-explenation{
+    color:white;
+}
+
+    .blocks-explenation img {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        height: 40%;
+        width: 40%;
+    }
+.tx-metkle-tree {
+    color: white;
+}
+
+.tx-metkle-tree img {
+    margin-left:auto;
+    margin-right:auto;
+    display:block;
+    height: 40%;
+    width: 40%;
+    align-items:center;
+    }

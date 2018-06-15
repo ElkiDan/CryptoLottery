@@ -127,7 +127,8 @@ input[type="number"] {
 }
 
 .backgroundPlay {
-    background-image: url(Home.jpeg);
+
+    background-image: linear-gradient( rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25) ), url(Resources/blockchain08.jpg);
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -136,7 +137,7 @@ input[type="number"] {
 
 .btnRandomNumber {
     margin-left: 10px;
-    background-image: url(randomButton.png);
+    background-image: url(Resources/randomButton.png);
     align-content: center;
     height: 83px;
     width: 105px;

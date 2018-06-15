@@ -10,7 +10,7 @@
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-    background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ),url("handshake.png");
+    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),url("Resources/handshake.png");
     /* Full height */
     height: 100%;
     /* Center and scale the image nicely */
@@ -21,6 +21,7 @@
 }
 
 .general-paragraphs {
+    width:80%;
     filter:brightness(50%);
     text-align: left;
     font-size: 14px;
