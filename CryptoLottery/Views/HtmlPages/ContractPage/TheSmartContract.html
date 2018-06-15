@@ -2,14 +2,234 @@
 <html>
 <head>
     <title></title>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <script src="../../Jquery/jquery-3.2.1.min.js"></script>
-    <link href="../../BootStrap/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../BootStrap/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet"/>
     <title>The Smart Contract</title>
-    <link href="../../CssFiles/Tech.css" rel="stylesheet" />
+    <link href="../../CssFiles/PlayCSS.css" rel="stylesheet" />
 </head>
 <body>
-    <div id="navBar"></div>
-    <script src="../../Scripts/NavBarScript.js"></script>
+<div id="navBar"></div>
+<div class="header">
+    <div class="columnFlex" style="margin-top: 10vmin">
+        <textarea rows="100" cols="188" style="font-weight: bold;font-size: 20px" placeholder="pragma solidity ^0.4.18;
+
+contract CryptoLottery{
+    
+    struct Player{
+        address playersAddress;
+        bytes32 hashedRandom;
+        uint256 amountOfEtherSent;
+    }
+    
+    int256 gracePeriodStartBlock;
+    uint256 private gracePeriod;
+    address private lotteryActivatorAddress;
+    uint256 private activatorBonus;
+    event AnnonceSentRandom(); 
+    event AnnounceWinner(address winner, address lotteryInitiator);
+    
+    mapping (address =&gt; Player) players;
+    address owner;
+    uint8 amountOfPlayers;
+    uint8 availablePlayersAmount;
+    int256 [] randomNumbersGathered;
+    uint256 etherSent;
+    address [] honestPlayersAddresses;
+    uint256 private contractBalance;
+    uint256 betAmount;
+    uint256 frozenFundAmount;
+    
+    
+    // START FOR DEBUGGING
+    address registeredPlayer;
+    bytes32 playerHashedRandom;
+    bool inStageTwo;
+    // END FOR DEBUGGING
+    
+    modifier onlyOwner(){
+        require (msg.sender == owner);
+        _;
+    }
+    
+    
+    function CryptoLottery() public{
+        gracePeriodStartBlock = -1;
+        // the amount of blocks until all players need to send their randomness and prove that they are honest.
+        gracePeriod = 10;
+        availablePlayersAmount = 2;
+        amountOfPlayers = 2;
+        etherSent = 10000000000000000; //0.01 ether 16ziros
+        betAmount = (etherSent/amountOfPlayers);
+        frozenFundAmount = etherSent-betAmount;
+        owner = msg.sender;
+        activatorBonus = betAmount/2;
+        contractBalance = 0;
+
+        // START FOR DEBUGGING
+        inStageTwo = false;    
+        // End FOR DEBUGGING
+ 
+    }
+    
+    function ()payable public{
+        contractBalance += msg.value;
+    }
+
+    //START FOR DEBUGGING
+    function getRegisteredPlayer ()  public view returns (address){
+        return registeredPlayer;
+    }
+    
+    function getHashedRandom () public view returns (bytes32) {
+        return playerHashedRandom;
+    }
+
+    
+    function checkIfStageTwo () public view returns (bool) {
+        return inStageTwo;
+    }
+    
+    // END FOR DEBUGGING
+    
+    function addNewPlayer(bytes32 _hashedRandom, uint256 amountOfWeiSent)  public {
+        if(availablePlayersAmount &gt; 0){
+            address playerAddress = msg.sender;
+            
+            //START FOR DEBUGGING
+            registeredPlayer = playerAddress;
+            playerHashedRandom = _hashedRandom;
+            // END FOR DEBUGGING
+            
+            //assert(ether_sent == 800000000000000000);
+            Player memory currentPlayer = Player(playerAddress, _hashedRandom, amountOfWeiSent);
+            players[playerAddress] = currentPlayer;
+            availablePlayersAmount -= 1;
+            if(availablePlayersAmount == 0){
+                stageTwo();    
+            }
+        }
+    }
+    
+    
+    function getContractBalance() public view returns (uint256){
+        return contractBalance;
+    }
+    
+    function getMyMoney() public{
+        address myAddress = msg.sender;
+        uint256 amount = players[myAddress].amountOfEtherSent;
+        contractBalance -= amount;
+        myAddress.transfer(amount);
+        
+        
+    }
+    
+    
+    // consider inlining the code into the addNewPlayer.
+    function stageTwo() public{
+        inStageTwo = true;
+        // give a certain amount for players to send their random number;
+        // when done generate the winner.
+        emit AnnonceSentRandom();
+        gracePeriodStartBlock = int256(block.number);
+        //conductLotteryAndPickWinner();
+    }
+    
+    
+    function checkIfLotteryCanStart()  public returns (bool){
+        if (gracePeriodStartBlock &gt; 0 ){
+            // start lottery.
+            if(block.number &gt;= uint256(gracePeriodStartBlock) + gracePeriod){
+                lotteryActivatorAddress = msg.sender;
+                conductLotteryAndPickWinner();
+            }else{
+                return false;
+            }        
+        }
+            return false;
+        }
+    
+    
+    function submitRandomness(string _stringRandomNumber) public returns (bool){
+        int256 random = stringToInt(_stringRandomNumber);
+        if(-1 == random){
+            return false;
+        }else{
+            address currentPlayerAddress = msg.sender;
+            bytes32 hashedRandom = keccak256(_stringRandomNumber);
+            bytes32 commitment = players[currentPlayerAddress].hashedRandom;
+            if (hashedRandom != commitment ){
+                return false;
+                // take his money - not an honest player.
+            }else{
+                // consider using mapping (address =&gt; int256) players address to the random number.
+                randomNumbersGathered.push(random);
+                honestPlayersAddresses.push(currentPlayerAddress);
+            }
+        }
+        return true;
+    }
+    
+    
+    
+    function stringToInt(string s) pure public  returns (int result) {
+        bytes memory b = bytes(s);
+        uint i;
+        result = 0;
+        for (i = 0; i &lt; b.length; i++) {
+            int c = int(b[i]);
+            if (c &gt;= 48 &amp;&amp; c &lt;= 57) {
+                result = result * 10 + (c - 48);
+            }else{
+                return -1;
+            }
+        }
+    }
+    
+    
+    function conductLotteryAndPickWinner()  private {
+        uint256 amountOfHonestPlayers = honestPlayersAddresses.length;
+        if (amountOfHonestPlayers &gt; 0 ){
+            int256 result = randomNumbersGathered[0];
+            for(uint256 i = 1; i &lt; amountOfHonestPlayers; i++){
+                result ^= randomNumbersGathered[i];
+            }
+            uint256 winningPlayerIndex = uint256(result) % amountOfHonestPlayers;
+            payTheWinnerAndReturnFrozenFunds(winningPlayerIndex);
+        }else{
+            // take all of their money.
+        }
+    }
+    
+        function payTheWinnerAndReturnFrozenFunds(uint256 winnerIndex) private {
+            //send the winner his money.
+            uint256 winnersPrize = frozenFundAmount + amountOfPlayers*betAmount - activatorBonus;
+            uint256 losersAmount = frozenFundAmount;
+            
+            honestPlayersAddresses[winnerIndex].transfer(winnersPrize);
+            contractBalance -= winnersPrize;
+        
+            players[lotteryActivatorAddress].playersAddress.transfer(activatorBonus);
+            contractBalance -= activatorBonus;
+            
+            uint256 amountOfHonestPlayers = honestPlayersAddresses.length;
+            for(uint256 i = 0; i &lt; amountOfHonestPlayers; i++){
+                if(i != winnerIndex) {
+                    honestPlayersAddresses[i].transfer(losersAmount); 
+                    contractBalance -= losersAmount;
+                }
+            }
+            
+            emit AnnounceWinner(honestPlayersAddresses[winnerIndex],lotteryActivatorAddress);
+    }
+    
+    
+    
+}"></textarea>
+    </div>
+    
+</div>
+<script src="../../Scripts/NavBarScript.js"></script>
 </body>
 </html>
