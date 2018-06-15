@@ -108,6 +108,7 @@
     <Content Include="Views\CssFiles\Resources\Yoavpic1.jpg" />
     <Content Include="Views\CssFiles\Tech.css" />
     <Content Include="Views\HtmlPages\AboutUsPage\AboutUs.html" />
+    <Content Include="Views\HtmlPages\ContractPage\TheSmartContract.html" />
     <Content Include="Views\HtmlPages\PlayPage\PlayPage.html" />
     <Content Include="Views\CssFiles\Resources\Illustration.png" />
     <Content Include="Views\CssFiles\Resources\merkle-t.png" />
