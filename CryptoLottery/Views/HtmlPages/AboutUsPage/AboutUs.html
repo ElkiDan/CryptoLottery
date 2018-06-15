@@ -11,6 +11,7 @@
     <div id="navBar"> </div>
     <div class="page-info">
         <div class="general-information">
+            <br />
             <h1>General Information</h1>
             <span class="border"></span>
             <div class="general-paragraphs">
@@ -29,9 +30,10 @@
                     <br>
                     1.Each user generates their own secret random number N
                     <br>
-                    2.Users create their commitment by hashing their N with their address: bytes32 hash = sha3(N,msg.sender)
+                    2.Users create their commitment by hashing their N with their address: bytes32 hash = sha3(N)
                     <br>
                     note: steps 1 & 2 should be performed locally, in secret.
+                    <br>
                     3.Users send their hash to the contract along a fixed amount of ether which is the bet and an additional amount that will be returned to each honest player so that it wouldn't be worth it to try and cheat.
                     <br>
                     4.Submissions continue until a sufficient participants have joined.
@@ -40,7 +42,7 @@
                     <br>
                     6.Each user submits their random number N to the contract
                     <br>
-                    7.The contract verifies that the keccak256(N,msg.sender) matches the original submission
+                    7.The contract verifies that the keccak256(N) matches the original submission
                     <br>
                     8.If the user does not submit a valid N in time, his deposit is forfeit.
                     <br>
@@ -61,8 +63,8 @@
             <h1>Our Team</h1>
             <span class="border"></span>
             <div class="ps">
-                <a href="#p1"><img src="../../CssFiles/Yoavpic1.jpg" /></a>
-                <a href="#p2"><img src="../../CssFiles/DanielPic1.jpg" /></a>
+                <a href="#p1"><img src="../../CssFiles/Resources/Yoavpic1.jpg" /></a>
+                <a href="#p2"><img src="../../CssFiles/Resources/Danielpic1.jpg" /></a>
             </div>
             <div class="section" id="p1">
                 <span class="name">Yoav Gomberg</span>

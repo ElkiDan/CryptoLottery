@@ -29,11 +29,9 @@ function getBalance(address) {
 var account = web3.eth.accounts[0];
 if (account == null) {
     console.log("Not Connected");
-    // document.getElementById("logoutImg").style.visibility = "visible";
     document.getElementById("currentBalance").value = "You Are Not Connected";
 } else {
     console.log("Connected");
-    //document.getElementById("loginImg").style.visibility = "visible";
     getBalance(account).then((result) => {
         var balance = result.c[0] / 10000;
         document.getElementById("currentBalance").value = balance.toString() + " ETHER";
@@ -46,16 +44,12 @@ var accountInterval = setInterval(function () {
         account = web3.eth.accounts[0];
         if (account != null) {
             console.log("Connected");
-            //document.getElementById("logoutImg").style.visibility = "hidden";
-            //document.getElementById("loginImg").style.visibility = "visible";
             getBalance(account).then((result) => {
                 var balance = result.c[0] / 10000;
                 document.getElementById("currentBalance").value = balance.toString() + " ETHER";
             });
         } else {
-            console.log("Log Out");
-            //document.getElementById("logoutImg").style.visibility = "visible";
-            //document.getElementById("loginImg").style.visibility = "hidden";
+            console.log("Logged Out");
             document.getElementById("currentBalance").value = "You Are Not Connected";
         }
     } else {
