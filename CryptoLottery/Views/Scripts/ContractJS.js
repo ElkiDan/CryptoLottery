@@ -29,12 +29,14 @@ function getBalance(address) {
 var account = web3.eth.accounts[0];
 if (account == null) {
     console.log("Not Connected");
-    document.getElementById("currentBalance").value = "You Are Not Connected";
+    $("#currentBalance").attr("value", balance.toString() + " ETHER");
+    var bla = 2;
 } else {
     console.log("Connected");
     getBalance(account).then((result) => {
         var balance = result.c[0] / 10000;
-        document.getElementById("currentBalance").value = balance.toString() + " ETHER";
+        $("#currentBalance").attr("value", balance.toString() + " ETHER");
+        var bla = 2;
     });
 
 }
@@ -46,20 +48,25 @@ var accountInterval = setInterval(function () {
             console.log("Connected");
             getBalance(account).then((result) => {
                 var balance = result.c[0] / 10000;
-                document.getElementById("currentBalance").value = balance.toString() + " ETHER";
+                $("#currentBalance").attr("value", balance.toString() + " ETHER")
+                var bla = 2;
+                // document.getElementById("currentBalance").value = balance.toString() + " ETHER";
             });
         } else {
             console.log("Logged Out");
-            document.getElementById("currentBalance").value = "You Are Not Connected";
+            $("#currentBalance").attr("value","You Are Not Connected");
+            var bla = 2;
         }
     } else {
         if (account != null) {
             getBalance(account).then((result) => {
                 var balance = result.c[0] / 10000;
-                document.getElementById("currentBalance").value = balance.toString() + " ETHER";
+                $("#currentBalance").attr("value", balance.toString() + " ETHER")
+//                document.getElementById("currentBalance").value = balance.toString() + " ETHER";
             });
         } else {
-            document.getElementById("currentBalance").value = "You Are Not Connected";
+            $("#currentBalance").attr("value", "You Are Not Connected");
+            var bla = 2;
         }
     }
 },
@@ -72,9 +79,11 @@ myContractInstance = myContract.at(contractAddress); //the contract address
 
 
 function play() {
-    if (document.getElementById("randomNumber").value != "") {
-        document.getElementById("playBtn").disabled = true;
-        document.getElementById("playBtn").style.opacity = "0.6";
+    //if (document.getElementById("randomNumber").value != "") {
+    if ($("#randomNumber").val() != "") {
+        //document.getElementById("playBtn").disabled = true;
+        $("#playBtn").attr("disabled",true);
+        $("#playBtn").css("opacity", "0.6");
 
         address = web3.eth.accounts[0];
         //check if its an address.
@@ -85,36 +94,37 @@ function play() {
                 var balance = result.c[0] / 10000;
                 if (balance >= amountOfPayment) {
                     //hash the random number 
-                    randomNumber = document.getElementById("randomNumber").value;
+                    //randomNumber = document.getElementById("randomNumber").value;
+                    randomNumber = $("#randomNumber").val();
                     var hashOfRandom = web3.sha3(randomNumber);
-                    web3.eth.sendTransaction({
-                        from: address,
-                        to: contractAddress,
-                        value: web3.toWei(0.01, "ether")
-                    },
-                        function (error, result) {
-                            if (!(error)) {
-                            }
-                        });
+                    //web3.eth.sendTransaction({
+                    //    from: address,
+                    //    to: contractAddress,
+                    //    value: web3.toWei(0.01, "ether")
+                    //},
+                    //    function (error, result) {
+                    //        if (!(error)) {
+                    //        }
+                    //    });
 
-                    myContractInstance.addNewPlayer(hashOfRandom,
-                        10000000000000000,
-                        function (error, result) {
-                            if (!(error)) {
-                                //console.log(result);
-                                document.getElementById("buttonsDiv").style.display = "none";
-                                document.getElementById("loaderDiv").style.display = "flex";
-                                alert("You are in the game!");
-                            }
-                        });
+                    //myContractInstance.addNewPlayer(hashOfRandom,
+                    //    10000000000000000,
+                    //    function (error, result) {
+                    //        if (!(error)) {
+                    //            //console.log(result);
+                    //            document.getElementById("buttonsDiv").style.display = "none";
+                    //            document.getElementById("loaderDiv").style.display = "flex";
+                    //            alert("You are in the game!");
+                    //        }
+                    //    });
                 } else {
                     alert("You are out of money!");
                 }
             });
         } else {
             alert("This is not an address!");
-            document.getElementById("playBtn").disabled = false;
-            document.getElementById("playBtn").style.opacity = "1";
+            $("#playBtn").attr("disabled", false);
+            $("#playBtn").css("opacity", "1");
         }
     } else {
         alert("Please Enter Random Number!");
