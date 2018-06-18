@@ -14,9 +14,9 @@ if (typeof web3 !== 'undefined') {
 }
 
 function getBalance(address) {
-    return new Promise(function (resolve, reject) {
+    return new Promise(function(resolve, reject) {
         web3.eth.getBalance(address,
-            function (error, result) {
+            function(error, result) {
                 if (error) {
                     console.log("Error!");
                 } else {
@@ -37,33 +37,32 @@ if (account == null) {
         $("#currentBalance").attr("value", balance.toString() + " ETHER");
     });
 
-}
-var accountInterval = setInterval(function () {
-    if (web3.eth.accounts[0] !== account) {
+var accountInterval = setInterval(function() {
+        if (web3.eth.accounts[0] !== account) {
 
-        account = web3.eth.accounts[0];
-        if (account != null) {
-            console.log("Connected");
-            getBalance(account).then((result) => {
-                var balance = result.c[0] / 10000;
-                $("#currentBalance").attr("value", balance.toString() + " ETHER");
-            });
+            account = web3.eth.accounts[0];
+            if (account != null) {
+                console.log("Connected");
+                getBalance(account).then((result) => {
+                    var balance = result.c[0] / 10000;
+                    $("#currentBalance").attr("value", balance.toString() + " ETHER");
+                });
+            } else {
+                console.log("Logged Out");
+                $("#currentBalance").attr("value", "You Are Not Connected");
+                var bla = 2;
+            }
         } else {
-            console.log("Logged Out");
-            $("#currentBalance").attr("value", "You Are Not Connected");
-            var bla = 2;
+            if (account != null) {
+                getBalance(account).then((result) => {
+                    var balance = result.c[0] / 10000;
+                    $("#currentBalance").attr("value", balance.toString() + " ETHER");
+                });
+            } else {
+                $("#currentBalance").attr("value", "You Are Not Connected");
+            }
         }
-    } else {
-        if (account != null) {
-            getBalance(account).then((result) => {
-                var balance = result.c[0] / 10000;
-                $("#currentBalance").attr("value", balance.toString() + " ETHER");
-            });
-        } else {
-            $("#currentBalance").attr("value", "You Are Not Connected");
-        }
-    }
-},
+    },
     100);
 
 var conAbi = JSON.parse(
@@ -125,7 +124,7 @@ function play() {
 
 var AnnonceSentRandom = myContractInstance.AnnonceSentRandom();
 
-AnnonceSentRandom.watch(function (error, result) {
+AnnonceSentRandom.watch(function(error, result) {
     if (!error) {
         $("#loaderDiv").css("display", "none");
         $("#buttonsDiv").css("display", "flex");
@@ -141,7 +140,7 @@ AnnonceSentRandom.watch(function (error, result) {
 
 var AnnonceWinnerAndBonusAct = myContractInstance.AnnounceWinner();
 
-AnnonceWinnerAndBonusAct.watch(function (error, result) {
+AnnonceWinnerAndBonusAct.watch(function(error, result) {
     if (!error) {
         var winnerAddress = result.args.winner;
         var bonusActAddress = result.args.lotteryInitiator;
@@ -180,7 +179,7 @@ function sendRandom() {
         var random = $("#randomNumber").val().toString();
         myContractInstance.submitRandomness(
             random,
-            function (error, result) {
+            function(error, result) {
                 if (!error) {
                     alert('The lottery will begin shortly, If you want to try and win the bonus you can click on the "Check if lottery can start" button ');
                 } else {
@@ -194,7 +193,7 @@ function sendRandom() {
 
 function checkIfLotteryCanStart() {
     myContractInstance.checkIfLotteryCanStart(
-        function (error, result) {
+        function(error, result) {
             if (!error) {
                 console.log("Trying");
             } else {
