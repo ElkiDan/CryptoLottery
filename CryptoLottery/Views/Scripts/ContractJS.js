@@ -50,7 +50,7 @@ var accountInterval = setInterval(function() {
             } else {
                 console.log("Logged Out");
                 $("#currentBalance").attr("value", "You Are Not Connected");
-                var bla = 2;
+
             }
         } else {
             if (account != null) {
@@ -66,9 +66,9 @@ var accountInterval = setInterval(function() {
     100);
 
 var conAbi = JSON.parse(
-    '[{ "anonymous": false, "inputs": [{ "indexed": false, "name": "winner", "type": "address" }, { "indexed": false, "name": "lotteryInitiator", "type": "address" }], "name": "AnnounceWinner", "type": "event" }, { "constant": false, "inputs": [{ "name": "_hashedRandom", "type": "bytes32" }, { "name": "amountOfWeiSent", "type": "uint256" }], "name": "addNewPlayer", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [], "name": "checkIfLotteryCanStart", "outputs": [{ "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [], "name": "getMyMoney", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [], "name": "resetContract", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [], "name": "stageTwo", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "anonymous": false, "inputs": [], "name": "AnnonceSentRandom", "type": "event" }, { "constant": false, "inputs": [{ "name": "_stringRandomNumber", "type": "string" }], "name": "submitRandomness", "outputs": [{ "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "payable": false, "stateMutability": "nonpayable", "type": "constructor" }, { "payable": true, "stateMutability": "payable", "type": "fallback" }, { "constant": true, "inputs": [], "name": "getContractBalance", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "add", "type": "address" }], "name": "getDisHonestPlayer", "outputs": [{ "name": "", "type": "bool" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "add", "type": "address" }], "name": "getHonestPlayer", "outputs": [{ "name": "", "type": "bool" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "add", "type": "address" }], "name": "getPlayerHashedRandom", "outputs": [{ "name": "", "type": "bytes32" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "add", "type": "address" }], "name": "getPlayerRandom", "outputs": [{ "name": "", "type": "int256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "i", "type": "uint256" }], "name": "getRandom", "outputs": [{ "name": "", "type": "int256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "", "type": "uint256" }], "name": "honestPlayersAddresses", "outputs": [{ "name": "", "type": "address" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "i", "type": "uint256" }], "name": "honestPlayersIndex", "outputs": [{ "name": "", "type": "address" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "", "type": "address" }], "name": "players", "outputs": [{ "name": "playersAddress", "type": "address" }, { "name": "hashedRandom", "type": "bytes32" }, { "name": "amountOfEtherSent", "type": "uint256" }, { "name": "sentRandom", "type": "bool" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "", "type": "uint256" }], "name": "randomNumbersGathered", "outputs": [{ "name": "", "type": "int256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "s", "type": "string" }], "name": "stringToInt", "outputs": [{ "name": "result", "type": "int256" }], "payable": false, "stateMutability": "pure", "type": "function" }]');
+    '[{ "constant": false, "inputs": [{ "name": "_stringRandomNumber", "type": "string" }], "name": "submitRandomness", "outputs": [{ "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [], "name": "stageTwo", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [{ "name": "add", "type": "address" }], "name": "getPlayerHashedRandom", "outputs": [{ "name": "", "type": "bytes32" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "add", "type": "address" }], "name": "getDisHonestPlayer", "outputs": [{ "name": "", "type": "bool" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "", "type": "uint256" }], "name": "honestPlayersAddresses", "outputs": [{ "name": "", "type": "address" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [{ "name": "_hashedRandom", "type": "bytes32" }, { "name": "amountOfWeiSent", "type": "uint256" }], "name": "addNewPlayer", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [{ "name": "add", "type": "address" }], "name": "getPlayerRandom", "outputs": [{ "name": "", "type": "int256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "getContractBalance", "outputs": [{ "name": "", "type": "uint256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [], "name": "resetContract", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": false, "inputs": [], "name": "checkIfLotteryCanStart", "outputs": [{ "name": "", "type": "bool" }], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [{ "name": "add", "type": "address" }], "name": "getHonestPlayer", "outputs": [{ "name": "", "type": "bool" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "", "type": "uint256" }], "name": "randomNumbersGathered", "outputs": [{ "name": "", "type": "int256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "i", "type": "uint256" }], "name": "honestPlayersIndex", "outputs": [{ "name": "", "type": "address" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "i", "type": "uint256" }], "name": "getRandom", "outputs": [{ "name": "", "type": "int256" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": false, "inputs": [], "name": "getMyMoney", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [{ "name": "", "type": "address" }], "name": "players", "outputs": [{ "name": "playersAddress", "type": "address" }, { "name": "hashedRandom", "type": "bytes32" }, { "name": "amountOfEtherSent", "type": "uint256" }, { "name": "sentRandom", "type": "bool" }], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [{ "name": "s", "type": "string" }], "name": "stringToInt", "outputs": [{ "name": "result", "type": "int256" }], "payable": false, "stateMutability": "pure", "type": "function" }, { "inputs": [], "payable": false, "stateMutability": "nonpayable", "type": "constructor" }, { "payable": true, "stateMutability": "payable", "type": "fallback" }, { "anonymous": false, "inputs": [], "name": "AnnonceSentRandom", "type": "event" }, { "anonymous": false, "inputs": [{ "indexed": false, "name": "winner", "type": "address" }, { "indexed": false, "name": "lotteryInitiator", "type": "address" }], "name": "AnnounceWinner", "type": "event" }]');
 var myContract = web3.eth.contract(conAbi);
-var contractAddress = "0x7be4cee570febc07e37b8760639078e129889ee5";
+var contractAddress = "0x6bf9f8b8919a56d031cf4b4963b22dc0de10cf2b";
 myContractInstance = myContract.at(contractAddress); //the contract address
 
 
@@ -89,18 +89,18 @@ function play() {
                     randomNumber = $("#randomNumber").val();
                     var hashOfRandom = web3.sha3(randomNumber);
                     web3.eth.sendTransaction({
-                        from: address,
-                        to: contractAddress,
-                        value: web3.toWei(0.01, "ether")
-                    },
-                        function (error, result) {
+                            from: address,
+                            to: contractAddress,
+                            value: web3.toWei(0.01, "ether")
+                        },
+                        function(error, result) {
                             if (!(error)) {
                             }
                         });
 
                     myContractInstance.addNewPlayer(hashOfRandom,
                         10000000000000000,
-                        function (error, result) {
+                        function(error, result) {
                             if (!(error)) {
                                 //console.log(result);
                                 document.getElementById("buttonsDiv").style.display = "none";
@@ -144,7 +144,13 @@ AnnonceWinnerAndBonusAct.watch(function(error, result) {
     if (!error) {
         var winnerAddress = result.args.winner;
         var bonusActAddress = result.args.lotteryInitiator;
-        $("#buttonsDiv").css("display", "none");
+        $("#buttonsDiv").css("display", "flex");
+        $("#playBtn").attr("disabled", false);
+        $("#playBtn").css("opacity", "1");
+        $("#randomBtn").attr("disabled", true);
+        $("#randomBtn").css("opacity", "0.6");
+        $("#checkForStartBtn").attr("disabled", true);
+        $("#checkForStartBtn").css("opacity", "0.6");
         if (winnerAddress == address) {
             $("#winnerDiv").css("display", "flex");
         } else {
@@ -174,14 +180,13 @@ AnnonceWinnerAndBonusAct.watch(function(error, result) {
 
 function sendRandom() {
     if (document.getElementById("randomNumber").value != "") {
-        $("#randomBtn").attr("disabled", true);
-        $("#randomBtn").css("opacity", "0.6");
         var random = $("#randomNumber").val().toString();
         myContractInstance.submitRandomness(
             random,
             function(error, result) {
                 if (!error) {
-                    alert('The lottery will begin shortly, If you want to try and win the bonus you can click on the "Check if lottery can start" button ');
+                    alert(
+                        'The lottery will begin shortly, If you want to try and win the bonus you can click on the "Check if lottery can start" button ');
                 } else {
                     console.log("You are out of the Game!");
                 }
@@ -204,5 +209,5 @@ function checkIfLotteryCanStart() {
 
 function generateRandomNumber() {
     var number = Math.floor((Math.random() * 100000) + 1);
-    $("#randomNumber").attr("value", number.toString());
+    $("#randomNumber").attr("value", number);
 }
