@@ -36,7 +36,7 @@ if (account == null) {
         var balance = result.c[0] / 10000;
         $("#currentBalance").attr("value", balance.toString() + " ETHER");
     });
-
+}
 var accountInterval = setInterval(function() {
         if (web3.eth.accounts[0] !== account) {
 
