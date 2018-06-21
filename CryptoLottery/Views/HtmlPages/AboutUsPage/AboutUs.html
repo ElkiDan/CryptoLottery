@@ -28,31 +28,31 @@
                         The following is The protocol:
                     </h2>
                     <br>
-                    1.Each user generates their own secret random number N
+                    1. Each user generates their own secret random number N
                     <br>
-                    2.Users create their commitment by hashing their N with their address: bytes32 hash = sha3(N)
+                    2. Users create their commitment by hashing their N with their address: bytes32 hash = sha3(N)
                     <br>
                     note: steps 1 & 2 should be performed locally, in secret.
                     <br>
-                    3.Users send their hash to the contract along a fixed amount of ether which is the bet and an additional amount that will be returned to each honest player so that it wouldn't be worth it to try and cheat.
+                    3. Users send their hash to the contract along a fixed amount of ether which is the bet and an additional amount that will be returned to each honest player so that it wouldn't be worth it to try and cheat.
                     <br>
-                    4.Submissions continue until a sufficient participants have joined.
+                    4. Submissions continue until a sufficient participants have joined.
                     <br>
-                    5.Once the submission round has ended, the reveal round begins.
+                    5. Once the submission round has ended, the reveal round begins.
                     <br>
-                    6.Each user submits their random number N to the contract
+                    6. Each user submits their random number N to the contract
                     <br>
-                    7.The contract verifies that the keccak256(N) matches the original submission
+                    7. The contract verifies that the keccak256(N) matches the original submission
                     <br>
-                    8.If the user does not submit a valid N in time, his deposit is forfeit.
+                    8. If the user does not submit a valid N in time, his deposit is forfeit.
                     <br>
-                    9.Stage 7 continues for a minimum grace period of 100 block and then each player can check if the lottery can start( The user who initiated the lottery will be rewarded by half of his bet !!)
+                    9. Stage 7 continues for a minimum grace period of 100 block and then each player can check if the lottery can start( The user who initiated the lottery will be rewarded by half of his bet)
                     <br>
-                    10.The Ns are all XOR'd together to generate the resulting random number.
+                    10. The Ns are all XOR'd together to generate the resulting random number.
                     <br>
-                    11.This number is used to determine which of the participants receives the reward. (N % numUsers)
+                    11. This number is used to determine which of the participants receives the reward. (N % numUsers)
                     <br>
-                    12.All players recieve their frozen funds, The winner gets the winning prize and the Lottery initiator gets his reward.
+                    12. All players recieve their frozen funds, The winner gets the winning prize and the Lottery initiator gets his reward.
                 </p>
             </div>
 
@@ -63,13 +63,13 @@
             <h1>Our Team</h1>
             <span class="border"></span>
             <div class="ps">
-                <a href="#p1"><img src="../../CssFiles/Resources/Yoavpic1.jpg" /></a>
+                <a href="#p1"><img src="../../CssFiles/Resources/yoavspic3.jpg" /></a>
                 <a href="#p2"><img src="../../CssFiles/Resources/Danielpic1.jpg" /></a>
             </div>
             <div class="section" id="p1">
                 <span class="name">Yoav Gomberg</span>
                 <span class="border"></span>
-                <p> A very enthusiastic and passionate software developer and technology geek, After serving in an elite unit on the IDF  started pursuing a double major degree in Computer Science and Economics in Bar-Ilan university and for the last 6 months am working 
+                <p> A very enthusiastic and passionate software developer and technology geek, After serving in an elite unit on the IDF  started pursuing a double major degree in Computer Science and Economics in Bar-Ilan university and for the last 7 months is working 
                     in Marvell on the Embedded processor group.
                 </p>
             </div>
@@ -77,9 +77,7 @@
             <div class="section" id="p2">
                 <span class="name">Daniel Marzayev</span>
                 <span class="border"></span>
-                <p>A very talented student for Computer Science and Economics in Bar-Ilan university, Currenly taking a part in an elite program of the IDF called "Atuda" 
-                   which drafts people after they finished their degree and integrating them  as officers on different parts of the army while using the knowledge they gained
-                during their studies</p>
+                <p>A very talented student for Computer Science and Economics in Bar-Ilan University, Currently taking part in an elite program of the IDF called "Atuda" which drafts people after they finished their degree and integrates them as officers in different parts of the army while using the knowledge they gained during their studies </p>
             </div>
         </div>
     </div>

@@ -95,6 +95,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\CssFiles\AboutUs.css" />
+    <Content Include="Views\CssFiles\CodePage.css" />
     <Content Include="Views\CssFiles\PlayCSS.css" />
     <Content Include="Views\CssFiles\Resources\Block.gif" />
     <Content Include="Views\CssFiles\Resources\blockchain08.jpg" />
@@ -105,7 +106,7 @@
     <Content Include="Views\CssFiles\Resources\randomButton.png" />
     <Content Include="Views\CssFiles\Resources\source.gif" />
     <Content Include="Views\CssFiles\Resources\w_handshake.png" />
-    <Content Include="Views\CssFiles\Resources\Yoavpic1.jpg" />
+    <Content Include="Views\CssFiles\Resources\yoavspic3.jpg" />
     <Content Include="Views\CssFiles\Tech.css" />
     <Content Include="Views\HtmlPages\AboutUsPage\AboutUs.html" />
     <Content Include="Views\HtmlPages\ContractPage\TheSmartContract.html" />
