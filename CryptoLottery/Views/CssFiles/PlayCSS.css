@@ -150,4 +150,5 @@ input[type="number"] {
 .temp {
     vertical-align: middle;
     margin-top: 20px;
+    float: left;
 }
